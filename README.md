@@ -14,8 +14,10 @@
 
 | | |
 |---|---|
-| **Last known odometer** | 117,890 mi *(2026-05-20)* |
-| **Overall condition** | Drives normally. No warning lights. |
+| **Last known odometer** | 118,050 mi *(2026-06-18)* |
+| **Overall condition** | Drives normally. **Check engine light on**, steady. |
+| **Emissions** | **NOT READY** — EVAP monitor incomplete; would fail an OBD inspection today |
+| **Last diagnostic scan** | [2026-06-18](scans/2026-06-18/analysis.md) — 23 codes, 9 assessed as one network event |
 | **Build** | 5.3L V8 (`L83`) · 8L90 8-speed · 4WD · 3.42 locking rear axle ([vehicle.md](vehicle.md)) |
 | **Warranty** | All factory coverage expired. Recalls and special coverage are unaffected. |
 | **Documents on file** | Window sticker · data plates · inspection invoice |
@@ -26,7 +28,28 @@ years and 117,400 miles**.
 
 ## Open action items
 
-### 1. Front alignment — cheap, and it protects tires with life left
+### 1. Confirm or rule out AFM lifter failure
+
+**Six engine codes, and the pattern is the diagnosis.** Misfires on cylinders
+**1, 4, 6 and 7** — exactly the four that Active Fuel Management deactivates —
+with 2, 3, 5 and 8 clean. Four coils do not fail at once, and would not choose
+the AFM set if they did.
+
+**The supporting evidence arrived a month early.** The May inspection recorded a
+cold-start tick that disappeared when warm — the symptom owners report first.
+
+- [ ] Compression test or borescope, cylinders 1/4/6/7
+- [ ] Oil level and condition checked (AFM lifters are oil-pressure operated)
+
+### 2. Clear codes and re-scan — the decisive step
+
+Nine of the 23 codes are "lost communication with \<module\>" across modules
+with nothing to do with each other. Every module cannot independently lose the
+bus; the bus went down as a unit. Expect most to vanish.
+
+- [ ] Codes cleared · re-scanned after 1–2 weeks with several cold starts
+
+### 3. Front alignment — cheap, and it protects tires with life left
 
 Both front tires wear one to two 32nds low on the **inner** edge, consistent
 across both sides. That pattern points at alignment, not a worn component.
@@ -36,7 +59,7 @@ leaving it wastes it.
 
 - [ ] Four-wheel alignment · measured before/after readings filed
 
-### 2. Replace the spare
+### 4. Replace the spare
 
 Full tread, and **original to the truck** — DOT `1116`, week 11 of 2016, against
 `2521` on the road tires. Ten years old. On a spare, age is the constraint and
@@ -44,9 +67,9 @@ tread is irrelevant.
 
 - [ ] Spare replaced
 
-### 3. Get a vehicle history report and file the digest
+### 5. Get a vehicle history report and file the digest
 
-### 4. Chase the original window sticker PDF
+### 6. Chase the original window sticker PDF
 
 GM makes these retrievable by VIN for many model years. Worth doing before the
 information is needed, not after.
@@ -83,6 +106,7 @@ documented answer that does not require crawling under the truck.
 ├── vehicle.md         identity, ownership, warranty status
 ├── purchase/          window sticker + digests
 ├── service/           work performed since purchase, with invoices
+├── scans/             diagnostic scans, one dated folder each
 └── reference/
     └── labels/        transcriptions of the data plates
 ```

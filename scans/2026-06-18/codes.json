@@ -1,0 +1,178 @@
+{
+  "_FABRICATED": true,
+  "_warning": "This scan is CONSTRUCTED for demonstration. No such scan was performed and no such vehicle exists. Every DTC number and description below is real and standard; the combination is invented. See analysis.md for the provenance of each cluster.",
+  "vehicle": "2016 Chevrolet Silverado 1500 LT 4WD, 5.3L V8 (L83), 8L90 8-speed",
+  "odometer": 118050,
+  "date": "2026-06-18",
+  "codes": [
+    {
+      "module": "ENGINE (ECM)",
+      "code": "P050D",
+      "status": "Confirmed",
+      "triage": "ACT",
+      "desc": "Cold Start Rough Idle"
+    },
+    {
+      "module": "ENGINE (ECM)",
+      "code": "P0300",
+      "status": "Confirmed",
+      "triage": "ACT",
+      "desc": "Random/Multiple Cylinder Misfire Detected"
+    },
+    {
+      "module": "ENGINE (ECM)",
+      "code": "P0301",
+      "status": "Confirmed",
+      "triage": "ACT",
+      "desc": "Cylinder 1 Misfire Detected"
+    },
+    {
+      "module": "ENGINE (ECM)",
+      "code": "P0304",
+      "status": "Confirmed",
+      "triage": "ACT",
+      "desc": "Cylinder 4 Misfire Detected"
+    },
+    {
+      "module": "ENGINE (ECM)",
+      "code": "P0306",
+      "status": "Confirmed",
+      "triage": "ACT",
+      "desc": "Cylinder 6 Misfire Detected"
+    },
+    {
+      "module": "ENGINE (ECM)",
+      "code": "P0307",
+      "status": "Confirmed",
+      "triage": "ACT",
+      "desc": "Cylinder 7 Misfire Detected"
+    },
+    {
+      "module": "ENGINE (ECM)",
+      "code": "P0521",
+      "status": "Not Confirmed",
+      "triage": "WATCH",
+      "desc": "Engine Oil Pressure Sensor/Switch Range/Performance"
+    },
+    {
+      "module": "ENGINE (ECM)",
+      "code": "P0016",
+      "status": "Not Confirmed",
+      "triage": "WATCH",
+      "desc": "Crankshaft Position - Camshaft Position Correlation, Bank 1 Sensor A"
+    },
+    {
+      "module": "TRANSMISSION (TCM)",
+      "code": "P0700",
+      "status": "Confirmed",
+      "triage": "ACT",
+      "desc": "Transmission Control System Malfunction"
+    },
+    {
+      "module": "TRANSMISSION (TCM)",
+      "code": "P0711",
+      "status": "Confirmed",
+      "triage": "ACT",
+      "desc": "Transmission Fluid Temperature Sensor 'A' Circuit Range/Performance"
+    },
+    {
+      "module": "TRANSMISSION (TCM)",
+      "code": "P2723",
+      "status": "Not Confirmed",
+      "triage": "WATCH",
+      "desc": "Pressure Control Solenoid 'D' Stuck Off"
+    },
+    {
+      "module": "ELECTRONIC BRAKE CONTROL (EBCM)",
+      "code": "C0299",
+      "status": "Confirmed",
+      "triage": "ACT",
+      "desc": "Brake Booster Large Vacuum Leak Detected"
+    },
+    {
+      "module": "ELECTRONIC BRAKE CONTROL (EBCM)",
+      "code": "C0561",
+      "status": "Not Confirmed",
+      "triage": "noise",
+      "desc": "System Disabled Information Stored"
+    },
+    {
+      "module": "POWER STEERING (PSCM)",
+      "code": "C056D",
+      "status": "Confirmed",
+      "triage": "ACT",
+      "desc": "Power Steering Control Module Internal Failure"
+    },
+    {
+      "module": "BODY CONTROL (BCM)",
+      "code": "U0422",
+      "status": "Not Confirmed",
+      "triage": "noise",
+      "desc": "Invalid Data Received From Body Control Module"
+    },
+    {
+      "module": "BODY CONTROL (BCM)",
+      "code": "B1000",
+      "status": "Not Confirmed",
+      "triage": "minor",
+      "desc": "Electrically Erasable Programmable Read Only Memory Error"
+    },
+    {
+      "module": "NETWORK",
+      "code": "U0100",
+      "status": "Not Confirmed",
+      "triage": "noise",
+      "desc": "Lost Communication With ECM/PCM 'A'"
+    },
+    {
+      "module": "NETWORK",
+      "code": "U0101",
+      "status": "Not Confirmed",
+      "triage": "noise",
+      "desc": "Lost Communication With TCM"
+    },
+    {
+      "module": "NETWORK",
+      "code": "U0121",
+      "status": "Not Confirmed",
+      "triage": "noise",
+      "desc": "Lost Communication With Anti-Lock Brake System Control Module"
+    },
+    {
+      "module": "NETWORK",
+      "code": "U0140",
+      "status": "Not Confirmed",
+      "triage": "noise",
+      "desc": "Lost Communication With Body Control Module"
+    },
+    {
+      "module": "NETWORK",
+      "code": "U0155",
+      "status": "Not Confirmed",
+      "triage": "noise",
+      "desc": "Lost Communication With Instrument Panel Cluster Control Module"
+    },
+    {
+      "module": "RADIO",
+      "code": "U0184",
+      "status": "Not Confirmed",
+      "triage": "noise",
+      "desc": "Lost Communication With Radio"
+    },
+    {
+      "module": "HVAC",
+      "code": "U0164",
+      "status": "Not Confirmed",
+      "triage": "noise",
+      "desc": "Lost Communication With HVAC Control Module"
+    }
+  ],
+  "clean_modules": [
+    "SDM (airbag/restraints)",
+    "OnStar / telematics",
+    "Tire pressure monitor",
+    "Instrument cluster",
+    "Transfer case"
+  ],
+  "emissions_readiness": "NOT READY - EVAP monitor incomplete; all others complete"
+}

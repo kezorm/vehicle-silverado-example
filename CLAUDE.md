@@ -28,17 +28,19 @@ repository**.
 
 ## Orientation
 
-Read this file, then `README.md` — current status and ranked open items.
-
-Nothing is filed yet. The first documents to arrive should be the purchase
-paperwork and anything the seller handed over.
+Read this file, then `README.md` — current status and ranked open items. Then
+`scans/2026-06-18/analysis.md`, which is where the open questions come from.
 
 ## What this record has learned the hard way
 
-*(Nothing yet — this record was created today. Entries go here as they are
-learned: a source that proved unreliable, a gap in the paperwork that turned out
-to hide real work, a number that was wrong the first time. These are worth more
-than the rules they illustrate, because they are why anyone believes them.)*
+- **The filing pass saved the most important sentence in the record.** A
+  technician's offhand note about a cold-start tick, transcribed verbatim in May
+  because the convention is to capture everything, became the earliest evidence
+  for the AFM lifter question four weeks later. *"Does this change anything?"*
+  would have discarded it.
+- **A published "sample" scan report carried a real customer's VIN and the
+  servicing technician's email address.** That is why this record's scan is
+  fabricated rather than borrowed, and why the VIN convention below exists.
 
 ## Record-specific conventions
 
@@ -63,10 +65,14 @@ than the rules they illustrate, because they are why anyone believes them.)*
 
 | What arrives | Where it goes |
 |---|---|
-| | |
+| Purchase paperwork | `purchase/` → digest in `window-sticker.md` |
+| Diagnostic scan report | `scans/YYYY-MM-DD/` → new `analysis.md`, diff vs `code-baseline.md` |
+| Service invoice or receipt | `service/YYYY-MM-DD-<what>/` → row in `service/README.md` |
+| Photo of a label or data plate | `reference/labels/` + transcription in its README |
 
-*(Empty on purpose. Fill a row in when a document arrives and a folder is made
-for it — see the method on why an empty guessed-at tree is worse than none.)*
+These folders exist because documents arrived that needed them. **Don't
+pre-create more** — see the method on why an empty guessed-at tree is worse than
+none.
 
 ## Repository facts
 
