@@ -15,22 +15,29 @@
 | | |
 |---|---|
 | **Last known odometer** | 117,400 mi *(2026-05-02, at purchase)* |
-| **Overall condition** | Unknown — nothing inspected or filed yet |
-| **Documents on file** | None |
+| **Overall condition** | Unknown — nothing inspected yet |
+| **Build** | 5.3L V8 (`L83`) · 8L90 8-speed · 4WD · 3.42 locking rear axle ([vehicle.md](vehicle.md)) |
+| **Warranty** | All factory coverage expired. Recalls and special coverage are unaffected. |
+| **Documents on file** | Window sticker transcription |
 
-**This record was created today and is empty.** That is the honest status, and
-saying so is better than an optimistic summary of nothing.
+Paid $18,400 against an original MSRP of $45,920 — a **60% decline over ten
+years and 117,400 miles**.
 
 ## Open action items
 
-1. **Gather the paperwork.** Whatever came with the truck — bill of sale, any
-   service receipts, the window sticker if it survived.
-2. **Get a vehicle history report** and file the digest.
-3. **Get a pre-purchase or baseline inspection**, and ask for *measurements*
+1. **Get a pre-purchase or baseline inspection**, and ask for *measurements*
    rather than adjectives. "Brakes good" is worthless in three years; a pad
    thickness is a wear rate.
-4. **Photograph and transcribe the data plates** — door jamb and glovebox —
-   before there is any chance of the truck being sold with them.
+2. **Photograph and transcribe the data plates** — door jamb and glovebox.
+3. **Get a vehicle history report** and file the digest.
+4. **Chase the original window sticker PDF.** GM makes these retrievable by VIN
+   for many model years. Worth doing before the information is needed, not after.
+
+### Settled by the window sticker
+
+The **locking rear differential (`G80`) and 3.42 axle (`GT4`) are factory**, not
+a previous owner's swap. A parts counter asking "which rear axle?" now has a
+documented answer that does not require crawling under the truck.
 
 ## How this record works
 
@@ -40,7 +47,9 @@ saying so is better than an optimistic summary of nothing.
 ├── README.md          ← you are here: status, open items, upcoming work
 ├── CLAUDE.md          what is specific to THIS truck; imports the method
 ├── .claude/method.md  the shared method, verbatim and versioned (v1.1.0)
-└── bin/               check-links · extract-text · inbox-status
+├── bin/               check-links · extract-text · inbox-status
+├── vehicle.md         identity, ownership, warranty status
+└── purchase/          window sticker + digests
 ```
 
 **No other folders yet, on purpose.** They get made when a document arrives that
