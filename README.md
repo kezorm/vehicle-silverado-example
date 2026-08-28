@@ -18,7 +18,7 @@
 | **Overall condition** | Unknown — nothing inspected yet |
 | **Build** | 5.3L V8 (`L83`) · 8L90 8-speed · 4WD · 3.42 locking rear axle ([vehicle.md](vehicle.md)) |
 | **Warranty** | All factory coverage expired. Recalls and special coverage are unaffected. |
-| **Documents on file** | Window sticker transcription |
+| **Documents on file** | Window sticker · data plate transcriptions |
 
 Paid $18,400 against an original MSRP of $45,920 — a **60% decline over ten
 years and 117,400 miles**.
@@ -28,10 +28,16 @@ years and 117,400 miles**.
 1. **Get a pre-purchase or baseline inspection**, and ask for *measurements*
    rather than adjectives. "Brakes good" is worthless in three years; a pad
    thickness is a wear rate.
-2. **Photograph and transcribe the data plates** — door jamb and glovebox.
-3. **Get a vehicle history report** and file the digest.
-4. **Chase the original window sticker PDF.** GM makes these retrievable by VIN
+2. **Get a vehicle history report** and file the digest.
+3. **Chase the original window sticker PDF.** GM makes these retrievable by VIN
    for many model years. Worth doing before the information is needed, not after.
+
+### Settled so far, and not actionable today
+
+The **RPO label** is transcribed — the block of three-character option codes in
+the glovebox that is the authoritative statement of which configuration this
+truck actually is. It means nothing this week and is the only answer to "which
+transfer case / which axle / which seat trim" once the truck is gone.
 
 ### Settled by the window sticker
 
@@ -49,7 +55,9 @@ documented answer that does not require crawling under the truck.
 ├── .claude/method.md  the shared method, verbatim and versioned (v1.1.0)
 ├── bin/               check-links · extract-text · inbox-status
 ├── vehicle.md         identity, ownership, warranty status
-└── purchase/          window sticker + digests
+├── purchase/          window sticker + digests
+└── reference/
+    └── labels/        transcriptions of the data plates
 ```
 
 **No other folders yet, on purpose.** They get made when a document arrives that
