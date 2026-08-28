@@ -14,23 +14,49 @@
 
 | | |
 |---|---|
-| **Last known odometer** | 117,400 mi *(2026-05-02, at purchase)* |
-| **Overall condition** | Unknown — nothing inspected yet |
+| **Last known odometer** | 117,890 mi *(2026-05-20)* |
+| **Overall condition** | Drives normally. No warning lights. |
 | **Build** | 5.3L V8 (`L83`) · 8L90 8-speed · 4WD · 3.42 locking rear axle ([vehicle.md](vehicle.md)) |
 | **Warranty** | All factory coverage expired. Recalls and special coverage are unaffected. |
-| **Documents on file** | Window sticker · data plate transcriptions |
+| **Documents on file** | Window sticker · data plates · inspection invoice |
+| **Last work done** | 2026-05-20 at 117,890 mi — oil, cabin filter, full measurement baseline |
 
 Paid $18,400 against an original MSRP of $45,920 — a **60% decline over ten
 years and 117,400 miles**.
 
 ## Open action items
 
-1. **Get a pre-purchase or baseline inspection**, and ask for *measurements*
-   rather than adjectives. "Brakes good" is worthless in three years; a pad
-   thickness is a wear rate.
-2. **Get a vehicle history report** and file the digest.
-3. **Chase the original window sticker PDF.** GM makes these retrievable by VIN
-   for many model years. Worth doing before the information is needed, not after.
+### 1. Front alignment — cheap, and it protects tires with life left
+
+Both front tires wear one to two 32nds low on the **inner** edge, consistent
+across both sides. That pattern points at alignment, not a worn component.
+
+Tires are at 6–7/32". Correcting alignment now protects the remaining life;
+leaving it wastes it.
+
+- [ ] Four-wheel alignment · measured before/after readings filed
+
+### 2. Replace the spare
+
+Full tread, and **original to the truck** — DOT `1116`, week 11 of 2016, against
+`2521` on the road tires. Ten years old. On a spare, age is the constraint and
+tread is irrelevant.
+
+- [ ] Spare replaced
+
+### 3. Get a vehicle history report and file the digest
+
+### 4. Chase the original window sticker PDF
+
+GM makes these retrievable by VIN for many model years. Worth doing before the
+information is needed, not after.
+
+### Watch
+
+- **Battery at 84% state of health**, 611 CCA against 730 rated. Passed. A
+  second reading at the next service makes it a trend rather than an opinion.
+- **A cold-start tick** noted by the technician, gone when warm. Recorded
+  verbatim and not interpreted.
 
 ### Settled so far, and not actionable today
 
@@ -56,6 +82,7 @@ documented answer that does not require crawling under the truck.
 ├── bin/               check-links · extract-text · inbox-status
 ├── vehicle.md         identity, ownership, warranty status
 ├── purchase/          window sticker + digests
+├── service/           work performed since purchase, with invoices
 └── reference/
     └── labels/        transcriptions of the data plates
 ```
