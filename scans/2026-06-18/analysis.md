@@ -126,6 +126,25 @@ ownership.** Have the VIN run before spending anything on a vacuum pump.
 failure cascade — pedal going hard, ABS-like pulsing as the module tries to
 compensate for falling vacuum.
 
+> **Added 2026-06-25 — recall `19V645000` was already performed on this truck.**
+> The service history filed after this analysis was written shows the vacuum
+> power brake assist recall was carried out **2021-07-15 at 76,050 mi**, five
+> years before this scan. See
+> [`../../purchase/prior-history.md`](../../purchase/prior-history.md).
+>
+> **This weakens the finding above rather than supporting it.** `C0299` cannot
+> be written off as "the open recall will cover it" — the remedy has already
+> been applied and the code set anyway. It now needs diagnosing on its merits,
+> and it moves *up* the list rather than down.
+>
+> Note what happened here: the model-level NHTSA lookup correctly reported
+> `19V645000` as applying to this vehicle, and that was true. It could not
+> report that the remedy was already performed. **Only a VIN-level lookup or a
+> service record can close that gap** — this is the worked example behind the
+> warning in [`../../reference/recalls-and-tsbs.md`](../../reference/recalls-and-tsbs.md).
+>
+> `19V761000` (ABS wheel speed sensor) still shows no record of being performed.
+
 **Watch for:** a pedal that feels harder than usual, especially on a cold start.
 
 ---

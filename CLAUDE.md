@@ -28,19 +28,27 @@ repository**.
 
 ## Orientation
 
-Read this file, then `README.md` — current status and ranked open items. Then
-`scans/2026-06-18/analysis.md`, which is where the open questions come from.
+Read this file, then `README.md` — current status and ranked open items. The
+archival half of the record is indexed there too, under *"The archival half."*
+
+For a reader studying the method rather than the truck, the three documents that
+carry it are `reference/labels/README.md` (why capture beats triage),
+`service/2026-05-20-pre-purchase-inspection/invoice.md` (full line items and
+measured baselines), and `scans/2026-06-18/analysis.md` (triage, and a dated
+annotation correcting its own conclusion).
 
 ## What this record has learned the hard way
 
 - **A model-level recall lookup is not a VIN-level lookup.** NHTSA returns 11
   campaigns for this model; reading each scope statement, only about six cover
   an ordinary 1500 — the rest are Police Pursuit, Special Service, or 2500/3500
-  HD. The database will happily let you believe otherwise.
+  HD. Worse, one that *does* apply had **already been performed** in 2021, which
+  the model-level API cannot tell you. That turned a "free dealer fix" into a
+  real diagnostic item. Only a VIN lookup or a service record closes that gap.
 - **The filing pass saved the most important sentence in the record.** A
-  technician's offhand note about a cold-start tick, transcribed verbatim in May
+  technician's offhand note about a cold-start tick, transcribed verbatim
   because the convention is to capture everything, became the earliest evidence
-  for the AFM lifter question four weeks later. *"Does this change anything?"*
+  for the AFM lifter question four weeks later. "Does this change anything?"
   would have discarded it.
 - **A published "sample" scan report carried a real customer's VIN and the
   servicing technician's email address.** That is why this record's scan is
@@ -69,7 +77,7 @@ Read this file, then `README.md` — current status and ranked open items. Then
 
 | What arrives | Where it goes |
 |---|---|
-| Purchase paperwork | `purchase/` → digest in `window-sticker.md` |
+| Purchase paperwork | `purchase/` → digest in `prior-history.md` or `window-sticker.md` |
 | Diagnostic scan report | `scans/YYYY-MM-DD/` → new `analysis.md`, diff vs `code-baseline.md` |
 | Service invoice or receipt | `service/YYYY-MM-DD-<what>/` → row in `service/README.md` |
 | Part numbers, fluid specs | `reference/fluids-and-parts.md` |
@@ -98,7 +106,8 @@ person, or third-party copyrighted document enters it.
 - Poppler is installed on this machine (`pdftotext`, `pdfseparate`, `pdftoppm`);
   `qpdf` and `gs` are not. `docling` is installed user-level via
   `uv tool install docling`.
-- No PDFs are filed yet, so `bin/extract-text` reports nothing. Expected.
+- There are no PDFs in this record yet, so `bin/extract-text` currently reports
+  nothing. That is expected, not a failure.
 
 ## Committing
 
