@@ -1,0 +1,86 @@
+#!/usr/bin/env python3
+"""Write a .txt extraction beside every PDF that lacks one.
+
+This is the highest-leverage habit in an asset record. An archived manual or
+report is nearly useless as a binary blob; extracted alongside, the whole corpus
+becomes greppable, and the owner's own documents beat the internet for questions
+about their specific item.
+
+Layout mode is used deliberately -- these documents are full of tables and
+column structure carries meaning.
+
+But pdftotext reconstructs columns from character positions, and it gets tables
+wrong often enough to matter. Files that look tabular are flagged below with
+TABLES so you know to verify a row against the PDF before trusting the numbers,
+or to re-extract with a structure-aware tool. See references/intake.md.
+
+Usage:  scripts/extract-text [root] [--force]
+"""
+import os
+import re
+import shutil
+import subprocess
+import sys
+
+
+def looks_tabular(text: str) -> bool:
+    """Heuristic: does this extraction contain column gutters?
+
+    pdftotext -layout represents columns as runs of spaces. Lines carrying two
+    or more wide gutters are almost always table rows or multi-column body text
+    -- exactly the cases where the reconstruction is least reliable.
+    """
+    lines = [ln for ln in text.splitlines() if ln.strip()]
+    if not lines:
+        return False
+    gutter = re.compile(r'\S {3,}\S')
+    hits = sum(1 for ln in lines if len(gutter.findall(ln)) >= 2)
+    return hits / len(lines) > 0.15
+
+
+def main() -> int:
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    force = '--force' in sys.argv
+    root = args[0] if args else '.'
+
+    if not shutil.which('pdftotext'):
+        print('pdftotext not found. Install poppler-utils.')
+        return 1
+
+    done = skipped = failed = tabular = 0
+    for dirpath, dirnames, filenames in os.walk(root):
+        dirnames[:] = [d for d in dirnames if d != '.git']
+        for name in filenames:
+            if not name.lower().endswith('.pdf'):
+                continue
+            pdf = os.path.join(dirpath, name)
+            txt = os.path.splitext(pdf)[0] + '.txt'
+            if os.path.exists(txt) and not force:
+                skipped += 1
+                continue
+            r = subprocess.run(['pdftotext', '-layout', pdf, txt],
+                               capture_output=True, text=True)
+            if r.returncode == 0:
+                body = open(txt, encoding='utf-8', errors='replace').read()
+                words = len(body.split())
+                flag = '  <-- TABLES: verify before trusting' if looks_tabular(body) else ''
+                print(f'  {os.path.relpath(txt, root)}  ({words:,} words){flag}')
+                if flag:
+                    tabular += 1
+                done += 1
+            else:
+                print(f'  FAILED {os.path.relpath(pdf, root)}: {r.stderr.strip()[:80]}')
+                failed += 1
+
+    print(f'\nextracted={done} already-present={skipped} failed={failed}')
+    if tabular:
+        print(f'\n{tabular} file(s) contain tabular layout. pdftotext reconstructs')
+        print('columns from character positions and gets them wrong often enough')
+        print('to matter -- spot-check a row against the PDF before relying on the')
+        print('numbers. For documents where the tables ARE the content, re-extract')
+        print('with a structure-aware tool:  uvx docling --to md <file.pdf>')
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+"""Verify every relative markdown link in a record resolves to a real file.
+
+Records accumulate cross-references fast, and a broken link is the first sign a
+file was moved without updating what pointed at it. Run before every commit --
+it is instant and catches real breakage.
+
+Fenced code blocks are skipped: documentation shows example links to files that
+deliberately do not exist, and flagging those trains you to ignore the output.
+
+Usage:  bin/check-links [root]     (default: current directory)
+Exit:   0 if all links resolve, 1 otherwise
+"""
+import os
+import re
+import sys
+
+SKIP_DIRS = {'.git', 'node_modules', '.venv', '__pycache__'}
+LINK = re.compile(r'\[[^\]]*\]\(([^)]+)\)')
+FENCE = re.compile(r'^\s*(```|~~~)')
+
+
+def links_outside_code(text):
+    """Yield link targets, ignoring anything inside a fenced code block."""
+    in_fence = False
+    for line in text.splitlines():
+        if FENCE.match(line):
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            continue
+        for target in LINK.findall(line):
+            yield target
+
+
+def main() -> int:
+    root = sys.argv[1] if len(sys.argv) > 1 else '.'
+    ok = 0
+    broken = []
+
+    for dirpath, dirnames, filenames in os.walk(root):
+        dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS]
+        for name in filenames:
+            if not name.endswith('.md'):
+                continue
+            path = os.path.join(dirpath, name)
+            try:
+                text = open(path, encoding='utf-8', errors='replace').read()
+            except OSError:
+                continue
+            for target in links_outside_code(text):
+                if target.startswith(('http://', 'https://', 'mailto:', '#')):
+                    continue
+                clean = target.split('#')[0].split(' ')[0].strip()
+                if not clean or clean.startswith('<<'):
+                    continue  # unfilled template placeholder
+                resolved = os.path.normpath(os.path.join(dirpath, clean))
+                if os.path.exists(resolved):
+                    ok += 1
+                else:
+                    broken.append((path, target))
+
+    for path, target in broken:
+        print(f'BROKEN  {path} -> {target}')
+    print(f'\nlinks ok={ok} broken={len(broken)}')
+    return 1 if broken else 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

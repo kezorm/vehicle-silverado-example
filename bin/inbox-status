@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+"""Inventory whatever is sitting in the inbox awaiting filing.
+
+The inbox exists so the owner can drop documents with no naming convention and
+no decisions. This tells you what arrived, what type it is, and how big it is,
+so you can plan the intake before touching anything.
+
+Usage:  scripts/inbox-status [inbox_dir]    (default: ./_inbox)
+"""
+import os
+import subprocess
+import sys
+from datetime import datetime
+
+IGNORE = {'README.md', '.gitkeep', '.DS_Store', 'Thumbs.db'}
+
+
+def human(n: int) -> str:
+    for unit in ('B', 'K', 'M', 'G'):
+        if n < 1024 or unit == 'G':
+            return f'{n:.0f}{unit}' if unit == 'B' else f'{n:.1f}{unit}'
+        n /= 1024
+    return f'{n:.1f}G'
+
+
+def kind(path: str) -> str:
+    try:
+        return subprocess.run(['file', '-b', '--mime-type', path],
+                              capture_output=True, text=True, timeout=10).stdout.strip()
+    except Exception:
+        return os.path.splitext(path)[1].lstrip('.') or '?'
+
+
+def main() -> int:
+    inbox = sys.argv[1] if len(sys.argv) > 1 else '_inbox'
+    if not os.path.isdir(inbox):
+        print(f'No inbox at {inbox}')
+        return 1
+
+    pending = sorted(f for f in os.listdir(inbox)
+                     if f not in IGNORE and not f.startswith('.')
+                     and os.path.isfile(os.path.join(inbox, f)))
+    if not pending:
+        print('Inbox is empty - nothing awaiting filing.')
+        return 0
+
+    print(f'{len(pending)} item(s) awaiting filing:\n')
+    print(f'{"FILE":<44} {"SIZE":>8}  {"MODIFIED":<18} TYPE')
+    print(f'{"-" * 44} {"-" * 8}  {"-" * 18} {"-" * 20}')
+    for f in pending:
+        p = os.path.join(inbox, f)
+        st = os.stat(p)
+        mod = datetime.fromtimestamp(st.st_mtime).strftime('%Y-%m-%d %H:%M')
+        name = f if len(f) <= 44 else f[:41] + '...'
+        print(f'{name:<44} {human(st.st_size):>8}  {mod:<18} {kind(p)}')
+    print('\nRead each file before filing it - the filename is a guess, the contents are the fact.')
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

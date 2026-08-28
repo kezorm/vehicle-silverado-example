@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Editor cruft
+*~
+*.swp
+
+# Inbox contents are untracked until triaged and filed.
+# Unfiled documents are transient, and some carry financing or personal
+# details — anything committed persists in git history permanently, so the
+# default is to keep the inbox out of version control. See _inbox/README.md.
+_inbox/*
+!_inbox/README.md
+!_inbox/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
