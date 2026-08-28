@@ -41,7 +41,23 @@ cold-start tick that disappeared when warm — the symptom owners report first.
 - [ ] Compression test or borescope, cylinders 1/4/6/7
 - [ ] Oil level and condition checked (AFM lifters are oil-pressure operated)
 
-### 2. Clear codes and re-scan — the decisive step
+### 2. Have a dealer run the VIN — free, do first
+
+Two things a scan tool cannot tell you:
+
+- **`19V761000`** (ABS wheel speed sensor / tone ring) applies to this truck and
+  shows no record of being performed. Recall work is free.
+- **Special coverage** may cover the transmission harness behind `P0700`/`P0711`.
+  Manufacturer-funded programs are not in NHTSA's database and no scan tool
+  reports them. **`[verify]`** — sourced from an owner complaint, not a GM
+  document, and the weakest claim in this record.
+
+Ask: *"any open recalls, campaigns, or special coverage against this VIN?"*
+
+- [ ] VIN run at nhtsa.gov/recalls
+- [ ] Dealer asked about campaigns **and** special coverage
+
+### 3. Clear codes and re-scan — the decisive step
 
 Nine of the 23 codes are "lost communication with \<module\>" across modules
 with nothing to do with each other. Every module cannot independently lose the
@@ -49,7 +65,7 @@ bus; the bus went down as a unit. Expect most to vanish.
 
 - [ ] Codes cleared · re-scanned after 1–2 weeks with several cold starts
 
-### 3. Front alignment — cheap, and it protects tires with life left
+### 4. Front alignment — cheap, and it protects tires with life left
 
 Both front tires wear one to two 32nds low on the **inner** edge, consistent
 across both sides. That pattern points at alignment, not a worn component.
@@ -59,7 +75,7 @@ leaving it wastes it.
 
 - [ ] Four-wheel alignment · measured before/after readings filed
 
-### 4. Replace the spare
+### 5. Replace the spare
 
 Full tread, and **original to the truck** — DOT `1116`, week 11 of 2016, against
 `2521` on the road tires. Ten years old. On a spare, age is the constraint and
@@ -67,9 +83,9 @@ tread is irrelevant.
 
 - [ ] Spare replaced
 
-### 5. Get a vehicle history report and file the digest
+### 6. Get a vehicle history report and file the digest
 
-### 6. Chase the original window sticker PDF
+### 7. Chase the original window sticker PDF
 
 GM makes these retrievable by VIN for many model years. Worth doing before the
 information is needed, not after.
@@ -107,7 +123,7 @@ documented answer that does not require crawling under the truck.
 ├── purchase/          window sticker + digests
 ├── service/           work performed since purchase, with invoices
 ├── scans/             diagnostic scans, one dated folder each
-└── reference/
+└── reference/         fluids, parts, recalls, known issues
     └── labels/        transcriptions of the data plates
 ```
 

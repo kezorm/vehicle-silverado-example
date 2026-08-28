@@ -33,6 +33,10 @@ Read this file, then `README.md` — current status and ranked open items. Then
 
 ## What this record has learned the hard way
 
+- **A model-level recall lookup is not a VIN-level lookup.** NHTSA returns 11
+  campaigns for this model; reading each scope statement, only about six cover
+  an ordinary 1500 — the rest are Police Pursuit, Special Service, or 2500/3500
+  HD. The database will happily let you believe otherwise.
 - **The filing pass saved the most important sentence in the record.** A
   technician's offhand note about a cold-start tick, transcribed verbatim in May
   because the convention is to capture everything, became the earliest evidence
@@ -68,6 +72,8 @@ Read this file, then `README.md` — current status and ranked open items. Then
 | Purchase paperwork | `purchase/` → digest in `window-sticker.md` |
 | Diagnostic scan report | `scans/YYYY-MM-DD/` → new `analysis.md`, diff vs `code-baseline.md` |
 | Service invoice or receipt | `service/YYYY-MM-DD-<what>/` → row in `service/README.md` |
+| Part numbers, fluid specs | `reference/fluids-and-parts.md` |
+| Recall or campaign notice | `reference/recalls-and-tsbs.md` |
 | Photo of a label or data plate | `reference/labels/` + transcription in its README |
 
 These folders exist because documents arrived that needed them. **Don't
